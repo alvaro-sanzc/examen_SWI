@@ -1,0 +1,121 @@
+Inicializar el proyecto:
+    npm init //No se si es necesario
+    npm install express //No se si es necesario
+    npm install -g express-generator
+    npx express-generator -v ejs express_test
+    cd express_test
+    npm install
+    npm audit fix <--force>
+    npm start
+
+
+Modulos que te pueden servir:
+    require('http');
+    require('path');
+    require('fs');
+    require('util');
+
+Variables de entorno:
+    npm install dotenv (<- Archivo .env)
+    require('dotenv').config();
+
+powershell> $env:PORT=3035; npm start
+CMD> set PORT=3035 && npm start
+
+Cookies: 
+    npm install express-session (ERROR: cookie-parser, tarda un )
+    app.js:
+        var session = require('express-session');
+        
+        // Configuración de sesión
+        app.use(session({
+            secret: 'mi_clave_secreta',   // Usa una clave secreta para firmar las sesiones
+            resave: false,                // No volver a guardar sesiones si no hay cambios
+            saveUninitialized: true,      // Guarda la sesión incluso si no está inicializada
+            cookie: { secure: false }     // Si usas HTTPS, cambia 'false' a 'true' (esto se usa para enviar cookies seguras)
+        }));
+
+
+NOTAS:
+    Buscador: http://localhost:3000/
+    Usuarios con su contraseña asignada en database/models
+    Al volver a poner npm start las cookies no se guardan (aun habíendolas usado con un usuario ya creado, hay que volver a aceptarlas)
+
+ENUNCIADO SIMULACRO:
+    APARTADO 1: 
+        Quitar el nombre. quitar el title de todos los archivos en routes
+            EJEMPLO: res.render('index', {user:req.session.user, title:"Embutidos León"}) -------> res.render('index', {user:req.session.user});
+
+    APARTADO 2:
+        Cookies con un botón de aceptar y otro de rechazar
+        CSS puro
+        Usuario cancelar --> google.es
+        Acepta las cookies --> Cierre Mensaje, Guarde inf sesión(no se vuelva a mostrar el mensaje)
+        Logeado que se guarde en la BBDD si las ha aceptado o no
+        En caso de que las acepte y entra en la páguina que no muestre ningún mensaje
+
+SOLUCIÓN SIMULACRO COOKIES:
+    APARTADO 1:
+        Quitar el nombre. quitar el title de todos los archivos en routes
+        EJEMPLO: res.render('index', {user:req.session.user, title:"Embutidos León"}) -------> res.render('index', {user:req.session.user});
+    
+    APARTADO 2:
+        1. Crea el .ejs:
+            <% if (!cookie) { %>
+            <footer id="footer">
+                <h1>Uso de Cookies</h1>
+                <label>Nos vemos obligados a informarle del uso de cookies necesarias para que funcione esta aplicación web.</label>
+                <div>
+                    <button id="acceptCookies">Aceptar</button>
+                    <button onclick="window.location.href='https://google.com'">Rechazar</button>
+                </div>
+            </footer>
+            <%}%>
+            </body>
+            </html>
+        2. Añadir CSS:
+            footer{
+                background-color: #bbb;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                bottom: 0;
+                z-index: 1;
+                align-items: center;
+                justify-items: center;
+                width: 100%;
+                padding: 20px;
+                gap:10px;
+            }
+        3. Añadir a login.js:
+            if(req.session.user){
+                database.user.savecookies(req.session.user.username);
+                console.log("SAVE IN DATABASE");
+            }
+        4. Añadir user.model.js:
+            users.savecookies = function(username){
+                users.data[username].cookies = true;
+            }
+
+            users.deletecookies = function(username){
+                users.data[username].cookies = false;
+            }
+        5. Añadir a app.js
+
+            app.use('/logout', (req,res) =>{
+                database.user.deletecookies(req.session.user.username);
+                req.session.destroy();
+                res.redirect("/");
+            });
+
+            app.post('/savecookies', (req, res, next) => {
+                req.session.consentCookie = true;
+                app.locals.cookie = true;
+
+                if(req.session.user){
+                    database.user.savecookies(req.session.user.username);
+                    console.log("SAVE IN DATABASE");
+                }
+
+                res.json({ success: true });
+            });

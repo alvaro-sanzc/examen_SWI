@@ -1,0 +1,70 @@
+<!--/views/index.js-->
+<%- include('header') %>
+    <!--Index Content START-->
+
+    <div class="info-container">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quam et non odio aliquam possimus quasi explicabo incidunt. Tenetur vel nobis sint libero ipsum quibusdam distinctio amet iste officia maxime?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quam et non odio aliquam possimus quasi explicabo incidunt. Tenetur vel nobis sint libero ipsum quibusdam distinctio amet iste officia maxime?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quam et non odio aliquam possimus quasi explicabo incidunt. Tenetur vel nobis sint libero ipsum quibusdam distinctio amet iste officia maxime?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et cum ipsum voluptas quasi voluptatum veniam, culpa aspernatur commodi adipisci rerum provident, quas dolorem. Earum cupiditate at cum possimus quos vero.
+      </p>
+    </div>
+    
+    <div class="central-grid">
+      <div class="container">
+        <p>rem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quam et non odio aliquam possimus quasi explicabo incidunt. Tenetur vel nobis sint libero ipsum quibusdam distinctio amet iste officia maxime?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quam et non odio aliquam possimus quasi explicabo incidunt. Tenetur vel nobis sint libero ipsum quibusdam distinctio amet iste officia maxime?
+        Lorem ipsum dolor sit amrem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quam et non odio aliquam possimus quasi explicabo incidunt. Tenetur vel nobis sint libero ipsum quibusdam distinctio amet iste officia maxime?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quam et non odio aliquam possimus quasi explicabo incidunt. Tenetur vel nobis sint libero ipsum quibusdam distinctio amet iste officia maxime?
+        Lorem ipsum dolor sit am</p>
+      </div>
+      <div class="container">
+        <p>rem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quam et non odio aliquam possimus quasi explicabo incidunt. Tenetur vel nobis sint libero ipsum quibusdam distinctio amet iste officia maxime?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quam et non odio aliquam possimus quasi explicabo incidunt. Tenetur vel nobis sint libero ipsum quibusdam distinctio amet iste officia maxime?
+          Lorem ipsum dolor sit am</p>
+      </div>
+      <div class="container">
+        <img id="" src="/images/drakeyjosh.jpg" alt="Where's the img?" width="275"  height="275" style="margin: 15%;">
+      </div>
+    </div>
+    <!--Index Content END-->
+
+    <!--Cookies Banner START-->
+    <div id="cookie-overlay" class="cookie-overlay">
+      <div id="cookie-banner" class="cookie-banner">
+        <p>This website uses cookies to improve your experience. Do you accept our cookies?</p> 
+        <button id="accept-cookies" class="cookie-btn">Accept</button>
+        <button id="reject-cookies" class="cookie-btn">Denied</button>
+      </div>
+    </div>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptButton = document.getElementById('accept-cookies')
+        const rejectButton = document.getElementById('reject-cookies')
+        const cookieOverlay = document.getElementById('cookie-overlay');
+
+        fetch('/check-cookies')
+            .then((response) => response.json())
+            .then((data) => {
+                if (!data.cookiesAccepted) {
+                    cookieOverlay.style.display = 'block';
+                }
+            });
+
+        acceptButton.addEventListener('click', () => {
+            fetch('./accept-cookies', { method: 'POST' })
+                .then(() => {
+                    cookieOverlay.style.display = 'none';
+                })
+        });
+        rejectButton.addEventListener('click', () => {
+            window.location.href = 'https://www.google.com';
+        });
+
+      });
+    </script>
+    <!--Cookies Banner END-->
+<%- include('footer') %>

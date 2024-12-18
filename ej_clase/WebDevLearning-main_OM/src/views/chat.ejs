@@ -1,0 +1,63 @@
+<%- include('header') %>
+
+    <div class="mensajes">
+        <div id="chat-box"></div>
+        <div class="send-message-box">
+            <input type="text" id="message-input" placeholder="Escribe un mensaje">
+            <button id="send-button" onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+    
+    <script>
+        const socket = io({ query: { chat_id: "<%= chat_id %>" } }); 
+
+            // Cargar el historial de mensajes
+            socket.on("chat history", (messages) => {
+                const chatBox = document.getElementById("chat-box");
+                chatBox.innerHTML = "";
+                messages.forEach((message) => {
+                    addMessageToChatBox(message.username, message.content);
+                });
+            });
+
+        // Enviar un mensaje
+        function sendMessage() {
+            const messageInput = document.getElementById("message-input");
+            const message = messageInput.value;
+            if (message.trim()) {
+                socket.emit("new message", { chat_id: <%= chat_id %> , user_id: <%= user_id %>, content: message });
+                messageInput.value = "";
+            }
+        };
+
+        // Recibir mensajes nuevos
+        socket.on("new message", (message) => {
+            addMessageToChatBox(message.username, message.content);
+            const sendButton = document.getElementById("send-button");
+            sendButton.disabled = false; // Reactivar botón
+        });
+
+        function addMessageToChatBox(username, content) {
+            const chatBox = document.getElementById("chat-box");
+            const messageElement = document.createElement("div");
+            <!-- if (username == <%= user_name %>) { -->
+                <!-- messageElement.className = "my-message"; -->
+            <!-- } else { -->
+                messageElement.className = "message";
+            <!-- } -->
+            messageElement.innerHTML = `<strong>${username}:</strong> ${content}`;
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Asignar evento `keydown` después de cargar el DOM
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('message-input').addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    document.getElementById('send-button').click();
+                }
+            });
+        });
+    </script>
+    
+    <%- include('footer') %>

@@ -1,0 +1,23 @@
+<%- include('header') %>
+    <!--Registry Start-->
+    <h1 id="login-welcome">Welcome Stranger!</h1>
+
+    <div class="login-container">
+      <form id="userRegistryForm" action="/register/registerUserDDBB" method="POST">
+        <label form="userRegistryForm" for="name">
+          <input class="input-box" id="name" name="name" type="text" placeholder="Name..." required>
+        </label>
+        
+        <label form="userRegistryForm" for="email">
+          <input class="input-box" id="email" name="email" type="text" placeholder="Email..."  required>
+        </label>
+        
+        <label form="userRegistryForm" for="password">
+          <input class="input-box" id="password" name="password" type="password" placeholder="Password..." required>
+        </label>
+
+        <button id="send-button-login" form="userRegistryForm" type="submit">Register</button>
+      </form>
+    </div>
+    <!--Registry End-->
+    <%- include('footer') %>

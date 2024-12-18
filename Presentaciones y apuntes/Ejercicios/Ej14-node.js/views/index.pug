@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  ul
+    each item in items
+      li
+        img(src=item.image, alt=item.name, width="100")
+        p= item.name
+  a(href="/login") 
+    button Login

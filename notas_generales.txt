@@ -7,3 +7,6 @@ PUERTOS:
     Cambiar el puerto en la aplicación:
         const port = process.env.PORT || 4000;
 
+MENSAJES ERROR HTTP:
+	https://http.cat/
+

@@ -1,0 +1,35 @@
+{
+    "peliculas": [
+      {
+        "titulo": "Spider-Man: No Way Home",
+        "director": "Jon Watts",
+        "actores_principales": ["Tom Holland", "Zendaya"],
+        "funciones": [
+          {
+            "sala": 17,
+            "horarios": ["17:00", "20:15"]
+          },
+          {
+            "sala": 20,
+            "horarios": ["18:00", "21:15"]
+          }
+        ]
+      },
+      {
+        "titulo": "The Matrix Resurrections",
+        "director": "Lana Wachowski",
+        "actores_principales": ["Keanu Reeves", "Carrie-Anne Moss"],
+        "funciones": [
+          {
+            "sala": 5,
+            "horarios": ["19:15"]
+          },
+          {
+            "sala": 22,
+            "horarios": ["22:30"]
+          }
+        ]
+      }
+    ]
+  }
+  

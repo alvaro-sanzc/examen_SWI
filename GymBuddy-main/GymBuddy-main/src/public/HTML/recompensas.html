@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recompensas de Desafíos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/ejercicios.css">
+  <link rel="stylesheet" href="../CSS/recompensas.css">
+</head>
+<body>
+    
+    <div id="header-container"></div>
+
+    <main>
+        <section class="rewards-container">
+            <h2>Recompensas de Desafíos</h2>
+
+            <div class="reward-card" onclick="completeChallenge(this, 'Medalla de Oro')">
+                <h3>Desafío de 5 km</h3>
+                <p>Recompensa: Medalla de Oro</p>
+                <button class="claim-btn">Completar Desafío</button>
+            </div>
+
+            <div class="reward-card" onclick="completeChallenge(this, 'Descuento en Tienda')">
+                <h3>Desafío de Flexiones</h3>
+                <p>Recompensa: 20% de Descuento en la Tienda</p>
+                <button class="claim-btn">Completar Desafío</button>
+            </div>
+
+            <div class="reward-card" onclick="completeChallenge(this, 'Avatar Exclusivo')">
+                <h3>Desafío de Sentadillas</h3>
+                <p>Recompensa: Avatar Exclusivo</p>
+                <button class="claim-btn">Completar Desafío</button>
+            </div>
+
+            <div class="reward-card" onclick="completeChallenge(this, 'Entrenamiento VIP')">
+                <h3>Desafío de Planchas</h3>
+                <p>Recompensa: Sesión de Entrenamiento VIP</p>
+                <button class="claim-btn">Completar Desafío</button>
+            </div>
+
+            <div class="reward-card" onclick="completeChallenge(this, 'Puntos Extra')">
+                <h3>Desafío de Saltos</h3>
+                <p>Recompensa: 500 Puntos Extra</p>
+                <button class="claim-btn">Completar Desafío</button>
+            </div>
+        </section>
+
+        <!-- Contenedor para el efecto de fuegos artificiales y mensaje de recompensa -->
+        <div id="fireworks-container"></div>
+        <div id="reward-message" class="hidden"></div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../JS/recompensas.js" defer></script>
+</body>
+</html>

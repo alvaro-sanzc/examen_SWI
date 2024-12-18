@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Imagenes/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/IMC.css">
+    <title>Calculadora del IMC</title>
+    <link>
+</head>
+<body>
+    <div id="header-container"></div>
+    <div id="app">
+        <div id="web-container">
+            <!-- PRIMER TEXTO -->
+            <div id="first-inquiry">
+                <h1 id="title-first-inquiry">Cómo calcular el IMC con nuestra calculadora para evaluar tu peso</h1>
+                <p id="text-first-inquiry">El índice de masa corporal (IMC) es una forma de medir el tamaño
+                  corporal. Es una herramienta para estimar la grasa corporal y detectar
+                  la obesidad y los riesgos para la salud. Poder calcular el IMC en
+                  personas adultas, hace que se puedan clasificar en perfiles de
+                  infrapeso, normopeso, sobrepeso u obesidad en función de su estatura y peso.</p>
+            </div>
+            <!-- CALCULADORA DE IMC -->
+            <div id="calculator-container">
+                <h1 id="calculator-title"> Descubre tu IMC </h1>
+                <div id="IMC-container">
+                    <div id="height-container">
+                        <h3 id="height-title"> Altura </h3>
+                        <label class="input-container">
+                            <input id="user-cm-input" class="user-input" type="number" min="0" placeholder="0"/> <!-- "le falta la etiqueta LABEL envolviendola -->
+                            <div class="description"> cm </div>
+                            <div class="update-container">
+                                <div class="update-input"> 🔼 </div>
+                                <div class="update-input"> 🔽 </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div id="weight-container">
+                        <h3 id="weight-title"> Peso </h3>
+                        <label class="input-container">
+                            <input id="user-kg-input" class="user-input" type="number" min="0" placeholder="0"/> <!-- "le falta la etiqueta LABEL envolviendola -->
+                            <div class="description"> kg </div>
+                            <div class="update-container">
+                                <div class="update-input"> 🔼 </div>
+                                <div class="update-input"> 🔽 </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div id="button-container">
+                    <div id="IMC-result">  </div>
+                    <button id="IMC-calculation" onclick="IMCCalculator()"> Calcular </button>
+                </div>
+            </div>
+            <!-- SEGUNDO TEXTO + TABLA DE INDICES IMC -->
+            <div id="second-inquiry">
+                <h2 id="title-second-inquiry">Calcular el IMC: Comprueba tu índice de masa corporal ahora con la calculadora</h2>
+                <p id="text-second-inquiry">
+                    Puedes utilizar la calculadora de IMC aquí para dividir tu peso en kg
+                    por tu altura en metros y comparar tu resultado con las clases de IMC.
+                    Introduce tu estatura y peso y comprueba tus resultados en la tabla
+                    siguiente. Haz clic en una clase de IMC para obtener más información
+                    sobre ella.
+                </p>
+            </div>
+            <div id="whole-table-container">
+                <div id="table-container">
+                    <div id="index-table">
+                        <table width="100%" cellspacing="0" cellpadding="1" border="1">
+                            <tbody>
+                                <tr>
+                                    <td><b>Clasificación </b></td>
+                                    <td><b>IMC</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Bajo peso</td>
+                                    <td>&lt;18,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Normal</td>
+                                    <td>18,5-24,9</td>
+                                </tr>
+                                <tr>
+                                    <td>Sobrepeso</td>
+                                    <td>25,0-29,9</td>
+                                </tr>
+                                <tr>
+                                    <td>Obesidad Clase I</td>
+                                    <td>30,0 -34,9</td>
+                                </tr>
+                                <tr>
+                                    <td>Obesidad Clase II</td>
+                                    <td>35,0-39,9</td>
+                                </tr>
+                                <tr>
+                                    <td>Obesidad Clase III</td>
+                                    <td>&gt;40</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="note-container">
+                    <div id="index-table-note">
+                        <p>
+                            <i>*Esta calculadora del IMC es para adultos de 20 años o más. Habla
+                            con tu médico sobre tu IMC si eres menor de 20 años.</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../JS/IMC.js"></script>
+</body>
+</html>

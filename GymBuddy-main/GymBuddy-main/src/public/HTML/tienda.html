@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Imagenes/logo-inicio.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/tienda.css">
+    <script src="../js/tienda.js" defer></script>
+    <title>Tienda</title>
+</head>
+<body>
+    
+    <div id="header-container"></div>
+
+    <div class="contenedor-buscador">
+        <input type="text" id="buscador-productos" placeholder="Buscar productos..." oninput="filtrarProductos()">
+    </div>
+
+    <main>
+        <div class="contenedor">
+            <h2>OFERTAS ACTUALES</h2>
+            <div class="seccion-productos" id="ofertas-actuales">
+            </div>
+
+            <h2>LOS MÁS VENDIDOS</h2>
+            <div class="seccion-productos" id="mas-vendidos">
+            </div>
+
+            <h2>TODOS NUESTROS PRODUCTOS</h2>
+            <div class="seccion-productos" id="todos">
+            </div>
+
+            <button id="ver-mas" onclick="mostrarMasProductos()">Ver Más</button>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+</html>
+

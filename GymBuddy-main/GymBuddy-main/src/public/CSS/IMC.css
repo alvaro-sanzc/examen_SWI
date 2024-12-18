@@ -1,0 +1,151 @@
+/* BODY */
+#app {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#web-container {
+    width: 60%;
+}
+/* Primera cuestion */
+#first-inquiry, #second-inquiry {
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+#title-first-inquiry, #title-second-inquiry {
+    font-size: 46px;
+    padding: 5px;
+}
+
+#text-first-inquiry, #text-second-inquiry {
+    font-size: 20px;
+    padding: 5px;
+}
+
+/* Calculadora IMC */
+#calculator-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 3px solid black;
+    background-color: #e1e0e0;
+    border-radius: 20px;
+}
+
+#calculator-title {
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+#IMC-container {
+    background-color: #cbcbcb;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid white;
+    display: flex;
+}
+
+#height-container {
+    padding: 5px;
+    width: 50%;
+}
+#height-title, #weight-title {
+    margin-left: 30px;
+}
+
+#weight-container {
+    padding: 5px;
+    width: 50%;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.user-input {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#user-cm-input, #user-kg-input {
+    text-align: right;
+    width: 70%;
+}
+
+.description {
+    margin-left: 5px;
+}
+
+.update-container {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.update-input {
+    filter: drop-shadow(1px 1px 0px rgba(0,0,0,1));
+    cursor: pointer;
+    user-select: none;
+}
+input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+#button-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: center;
+    /*justify-content: right;*/
+}
+
+#IMC-result {
+    font-size: 22px;
+    width: 80%;
+    text-align: center;
+}
+
+#IMC-calculation {
+    padding: 8px 20px 8px 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #cfddea;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Tabla de indices IMC */
+#whole-table-container {
+    padding: 10px;
+}
+
+#table-container {
+    display: flex;
+    justify-content: center;
+}
+
+#index-table {
+    text-align: center;
+    width: 70%;
+    font-size: 22px;
+}
+
+#note-container {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+#index-table-note {
+    width: 70%;
+    font-size: 10px;
+}

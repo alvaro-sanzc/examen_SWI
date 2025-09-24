@@ -1,8 +1,0 @@
-/* Estilo básico del canvas */
-canvas {
-    border: 1px solid black;
-    display: block;
-    margin: 0 auto; /* Centra el canvas en la página */
-}
-
-/* Puedes agregar más estilos si lo deseas */

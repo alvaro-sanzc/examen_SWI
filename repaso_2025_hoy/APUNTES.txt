@@ -1,0 +1,57 @@
+APUNTES:
+
+AÑADIR ALGO NUEVO AL ÍNDICE, ADMIN -> REPASO/FINAL_WEB_TOMAS/SIMULACRO_2.0 (casino)
+HTML, JSON DINÁMICO-> SW1-tomas\videos_YT\freeCodeCamp\primer_servidor_node\express\
+
+ChatOrianna -> REPASO/FINAL_WEB_TOMAS/ChatOrianna
+
+JSON en un HTML -> 
+
+<!-- NO  <h1>Cursos de <%= tema || 'Matemáticas' %></h1> -->
+
+
+1. CONFIGURACION GIT
+git config --global user.name "alvaro.sanzcortes"
+git config --global user.email alvaro.sanzcortes@usp.ceu.es
+
+PONER MI NOMBRE EN EL ARCHIVO.TXT
+
+git commit -am "commit Inicial"
+git push
+
+
+2. EJECUTAR NODE.JS
+npm i (npm install)
+npm start (node app .\app.js
+npm i ejs
+
+MIRAR EL PUERTO en bin/www
+ENTRAR EN localhost:3000
+
+
+ESCUCHAR EN EL PUERTO 4000 Y SI NO 3000
+var port = normalizePort(process.env.PORT || '4000') || '3000';
+app.set('port', port);
+
+
+
+3. 
+AÑADIR A app.js -> app.locals.title = "Embutidos León";
+
+
+CAMBIAR EN LAS RUTAS A router.get('/', function(req, res, next) {
+  res.render('login', {user: req.session.user});
+});
+
+
+
+4. NO FUNCIONA EL JS, PONER DEFER.
+<script src="/javascripts/footer.js" defer></script>
+
+
+5. Frase de paso, poner en app.js (esta secret es poco segura"
+app.use(session({
+  secret: "Una frase muy secreta",
+  resave: false,
+  saveUninitialized: true
+}));

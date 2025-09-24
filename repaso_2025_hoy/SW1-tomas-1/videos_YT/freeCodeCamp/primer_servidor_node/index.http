@@ -1,0 +1,2 @@
+// extension REST Client -> esta bien, tiene buena pinta de ser practica
+POST http://localhost:3000

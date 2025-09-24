@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  /*color: rgb(46, 46, 139);*/
+  height: 100%;
+  background: linear-gradient(to right, #0f1960, #361255, #ca5305);
+  color: white
+}
+
+a {
+  color: #00B7FF;
+}
+
+.cookie-banner {
+  flex: 1;
+  background-color: rgba(37, 4, 67, 0.886);
+  text-align: center;
+  align-items: flex-end;
+  height: 150px;
+  width: 100%;
+  z-index: 9999;
+  bottom: 0;
+  position: fixed;
+}

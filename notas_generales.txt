@@ -1,0 +1,12 @@
+PUERTOS:
+    Cuando el puerto 3000 esté ocupado: 
+        netstat -ano | findstr :3000
+        tasklist | findstr <PID>
+        taskkill /PID <PID> /F
+
+    Cambiar el puerto en la aplicación:
+        const port = process.env.PORT || 4000;
+
+MENSAJES ERROR HTTP:
+	https://http.cat/
+

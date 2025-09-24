@@ -1,0 +1,52 @@
+<!--/views/header.ejs-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/socket.io/socket.io.js"></script> <!-- Socket.IO -->
+    <script>
+        document.getElementById('inputField').addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                document.getElementById('send-button').click();
+            }
+        });
+    </script>
+</head>
+ 
+<body>
+    <div class="wrapper">
+        <!-- <div class="main-content"> -->
+            <div class="top-content">
+                <div class="header">
+                    <h1>Web Chat App studying</h1>
+                </div>
+                <% if (!user || role === 'invitado') { %>
+                    <div class="nav-bar">
+                        <a href="/" class="btn-nav-bar">Home</a>
+                        <a href="/chat" class="btn-nav-bar">Chat</a>
+                        <a href="/login" class="btn-nav-bar">Log In</a>
+                        <a href="/register" class="btn-nav-bar">Sign Up</a>
+                    </div>
+                <% } else if (role === 'admin') { %>
+                    <div class="nav-bar">
+                        <a href="/" class="btn-nav-bar">Home</a>
+                        <a href="/chat" class="btn-nav-bar">Chat</a>
+                        <a href="/admin" class="btn-nav-bar">Admin</a>
+                        <a href="/logout" class="btn-nav-bar">Log Out</a>
+                    </div>
+                <% } else if (role === 'cliente') { %>
+                    <div class="nav-bar">
+                        <a href="/" class="btn-nav-bar">Home</a>
+                        <a href="/chat" class="btn-nav-bar">Chat</a>
+                        <a href="/logout" class="btn-nav-bar">Log Out</a>
+                    </div>
+                <% } %>
+                
+            <div class="main-content">

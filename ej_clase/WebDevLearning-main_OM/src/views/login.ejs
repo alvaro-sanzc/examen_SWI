@@ -1,0 +1,19 @@
+<%- include('header') %>
+
+    <h1 id="login-welcome">You seem familiar!</h1>
+    
+    <!--Log In Start-->
+    <div class="login-container">
+      <form id="userLoginForm" action="/login/loginUserDDBB" method="POST">
+        <label form="userLoginForm" for="email">
+          <input class="input-box" id="email" name="email" type="text" placeholder="Email..." required>
+        </label>
+        <label form="userLoginForm" for="password">
+          <input class="input-box" id="password" name="password" type="password" placeholder="Password..." required>
+        </label>
+        <button id="send-button-login" form="userLoginForm" type="submit">Log In</button>
+      </form>
+    </div>
+    <!--Log In End-->
+
+<%- include('footer') %>

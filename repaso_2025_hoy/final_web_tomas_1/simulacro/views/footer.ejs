@@ -1,0 +1,28 @@
+<% if (!cookie) { %>
+<div id="cookies-container">
+    <p id="cookie-title"> Uso de cookies </p>
+    <p> Nos vemos obligados a informale del uso de cookies necesarias para que funcione esta aplicación web. </p>
+    <div>
+        <button onclick=cerrarCookies()> Aceptar </button>
+        <button onclick="window.location='http://www.google.es'"> Rechazar </button>
+    </div>
+</div>
+<% } %>
+
+<script>
+    function cerrarCookies() {
+        fetch('/aceptarCookies', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ consent: true }),
+            })
+        .then((data) => {
+            console.log('Consent saved:', data);
+            if (document.getElementById('cookies-container')) {
+                document.getElementById('cookies-container').style.display = 'none'; // Oculta el footer
+            }
+        })
+        .catch((error) => console.error('Error al guardar cookies:', error));
+
+    }
+</script>

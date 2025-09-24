@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Imagenes/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/MetasPersonales.css">
+    <title> Desafios </title>
+</head>
+<body>
+    <div id="header-container"></div>
+    <div class="center">
+        <div class="Cabecera-meta">
+            <div class="boton-annadir-meta"> Añadir Desafio </div>
+            <div class="boton-borrar-meta"> Borrar Desafio </div>
+            <div class="oculto"> Cancelar </div>
+        </div>
+        <div class="div-metas"></div>
+    </div>
+    <div id="footer-container"></div>
+    
+    <script src="../JS/MetasPersonales.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Cargar y usar el template
+        /*fetch('../HTML/header.html')
+            .then(response => response.text())
+            .then(data => {
+                const template = document.getElementById('header-template');
+                template.innerHTML = data;
+                document.body.insertBefore(template.content.cloneNode(true), document.body.firstChild);
+            })
+            .catch(error => console.error('Error al cargar el header:', error));
+
+        fetch('../HTML/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                const template = document.getElementById('footer-template');
+                template.innerHTML = data;
+                document.body.insertBefore(template.content.cloneNode(true), document.body.nextSibling);
+            })
+            .catch(error => console.error('Error al cargar el footer:', error));*/
+    </script>
+</body>
+</html>
+

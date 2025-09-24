@@ -1,0 +1,1 @@
+link del video: https://www.youtube.com/watch?v=TlB_eWDSMt4&ab_channel=ProgrammingwithMosh

@@ -1,0 +1,16 @@
+<%- include("header", {}) %>
+<h1>Chat en tiempo real</h1>
+
+<!-- Lista para mostrar los mensajes -->
+<ul id="messages"></ul>
+
+<!-- Formulario para enviar mensajes -->
+<form id="form" action="">
+  <input id="input" autocomplete="off" placeholder="Escribe un mensaje..." />
+  <button>Enviar</button>
+</form>
+
+<!-- Scripts -->
+<script src="/socket.io/socket.io.js"></script> <!-- Cliente de Socket.IO -->
+<script src="/javascripts/chat.js"></script> <!-- Archivo de cliente -->
+<%- include("footer", {}) %>

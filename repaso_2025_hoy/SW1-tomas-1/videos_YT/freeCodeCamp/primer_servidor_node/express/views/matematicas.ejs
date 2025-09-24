@@ -1,0 +1,26 @@
+<%- include('header') %>
+
+
+ <h1> Cursos de Matemáticas</h1>
+ <h1> Cursos de <%= categoria %></h1>
+
+
+<ul>
+  <% if (cursos.length === 0) { %>
+    <li>No hay cursos</li>
+  <% } else { %>
+    <% cursos.forEach(curso => { %>
+      <li>
+        <h3><%= curso.titulo %></h3>
+        <p>
+          Tema: <%= curso.tema %> ·
+          Nivel: <%= curso.nivel %> ·
+          Vistas: <%= curso.vistas %>
+        </p>
+      </li>
+    <% }) %>
+  <% } %>
+</ul>
+
+</body>
+</html>

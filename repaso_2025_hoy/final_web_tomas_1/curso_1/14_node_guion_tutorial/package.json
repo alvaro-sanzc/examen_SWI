@@ -1,0 +1,31 @@
+{
+  "name": "14_node_guion_tutorial",
+  "version": "1.0.0",
+  "description": "Este es un proyecto introductorio a NodeJS",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/20_variables_entorno.js"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "javascript",
+    "tutorial"
+  ],
+  "author": "tomas machin",
+  "license": "ISC",
+  "devDependencies": {
+    "morgan": "1.10.0"
+  },
+  "dependencies": {
+    "axios": "1.7.9",
+    "dotenv": "16.4.7",
+    "mysql2": "3.12.0",
+    "node-fetch": "3.3.2",
+    "nodemon": "3.1.9",
+    "pg": "8.13.1",
+    "uuid": "11.0.5"
+  }
+}

@@ -1,0 +1,103 @@
+/* Main content area */
+main {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando el espacio es limitado */
+}
+
+.progress-container {
+    flex: 3;
+    max-width: 75%;
+    min-width: 300px; /* Establecer un ancho mínimo para que no se haga demasiado pequeño en pantallas muy pequeñas */
+}
+
+.chart-section-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chart-section {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px; /* Aumenta el padding para dar más espacio a las gráficas */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+    height: 400px; /* Ajusta la altura de los contenedores de las gráficas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Permite posicionar los elementos internos */
+}
+.chart-section h3 {
+    position: absolute; /* Posiciona el título de forma absoluta respecto al contenedor */
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    left: 10px; /* Mueve el título hacia la izquierda */
+    margin: 0; /* Elimina el margen por defecto */
+    font-size: 18px; /* Ajusta el tamaño de la fuente según lo necesites */
+    font-weight: bold; /* Puedes cambiar el peso de la fuente si lo deseas */
+}
+
+.user-info {
+    flex: 1;
+    max-width: 25%;
+    min-width: 200px; /* Añadir un ancho mínimo para asegurar que se vea bien */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-stats {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.user-stats p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Contenedor de botones de semana, mes, año */
+.filter-buttons {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    padding: 10px; /* Espacio alrededor de los botones */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    width: 100%; /* Los botones ocuparán todo el ancho disponible */
+    position: relative; /* Posición normal en el flujo del documento */
+}
+
+/* Estilo de los botones */
+.filter-buttons button {
+    background-color: rgb(2, 126, 243);
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Espaciado de los botones */
+    margin: 0 10px; /* Espacio entre botones */
+    border-radius: 8px;
+    font-size: 1.2rem; /* Tamaño de la fuente */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el ratón */
+.filter-buttons button:hover {
+    background-color: rgb(0, 104, 202);
+}

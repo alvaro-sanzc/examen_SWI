@@ -1,0 +1,11 @@
+{
+  "name": "prueba_node",
+  "version": "1.0.0",
+  "description": "Ejercicio de prueba de node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tomas Machin",
+  "license": "ISC"
+}

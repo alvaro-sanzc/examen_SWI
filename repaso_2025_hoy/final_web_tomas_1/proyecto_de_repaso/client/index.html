@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Chat </title>
+    <script type="module">
+        import { io } from 'https://cdn.socket.io/4.3.2/socket.io.esm.min.js'
+
+        const form = document.getElementById('form')
+        const input = document.getElementById('input')
+        const messages = document.getElementById('messages')
+
+        const getUsername = async () => {
+            const username = localStorage.getItem('username')
+            if (username) {
+                console.log(`Usuario existente ${username}`)
+                return username
+            }
+
+            const res = await fetch('https://random-data-api.com/api/users/random_user')    // api de ejemplo
+            const { username: randomUsername } = await res.json()
+
+            localStorage.setItem('username', randomUsername)
+            return randomUsername
+        }
+
+        const socket = io({
+            auth:{ 
+                username: await getUsername(),
+                serverOffset: 0 // para saber cual es el ultimo mensaje creado (por defecto 0) (saber donde se ha quedado cada usuario)
+            }
+        })
+
+        socket.on('chat message', (msg, serverOffset, username) => {
+            const item = `<li> <p> ${msg} </p> <small> ${username} </small> </li>`
+            messages.insertAdjacentHTML('beforeend', item)
+            socket.auth.serverOffset = serverOffset
+            // scroll al final de los mensajes para ver siempre el ultimo mensaje
+            messages.scrollTop = messages.scrollHeight
+        })
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()  // evitar el comportamiento por defecto
+
+            if(input.value) {
+                socket.emit('chat message', input.value)
+                input.value = ''
+            }
+        })
+        
+
+    </script>
+    <style>
+        *,
+        *::before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            color-scheme: ligth dark;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: grid;
+            place-content: center;
+            height: 100hv;
+            padding: 100px 36px 100px 36px;
+            grid-template-rows: 1fr;
+        }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll;
+            height: 100%;
+            scroll-behavior: smooth;
+            padding-bottom: 64px;
+        }
+
+        #messages > li {
+            padding: 0.5rem 1rem;
+        }
+
+        #messages > li:nth-child(odd) {
+            background: #343434;
+        }
+
+        #chat {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+            width: 350px;
+            height: 100%;
+            position: relative;
+        }
+
+        #form {
+            bottom: 0;
+            display: flex;
+            height: 48px;
+            left: 0;
+            padding: 4px;
+            position: absolute;
+            right: 0;
+        }
+
+        #input {
+            border: 1px solid #eee;
+            border-radius: 9999px;
+            flex: 1;
+            margin: 4px;
+            padding: 0 8px;
+        }
+
+        #input:focus {
+            outline: 0;
+        }
+
+        #form > button {
+            background: #09f;
+            color: white;
+            border: 0;
+            margin: 4px;
+            border-radius: 4px;
+        }
+
+        #form > button:hover {
+            background: #0cf;
+        }
+
+    </style>
+</head>
+<body>
+    <section id="chat">
+        <ul id="messages"></ul>
+        <form id="form">
+            <input type="text" name="message" id="input" placeholder="Type a message" autocapitalize="off" />
+            <button type="submit"> Send </button>
+        </form>
+    </section>  
+</body>
+</html>

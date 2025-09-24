@@ -1,0 +1,15 @@
+{
+  "name": "webdevlearning",
+  "version": "1.0.0",
+  "description": "building a web app",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Orianna M",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "socket.io": "^4.8.1"
+  }
+}
